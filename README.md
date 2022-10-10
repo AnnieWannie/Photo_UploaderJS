@@ -1,4 +1,4 @@
-# Photo_Uploader_Website
+# Photo_UploaderJS
 
 **Use 'npm run uploader' in the terminal when working directory is at the root to initialize the website.**
 
