@@ -6,7 +6,7 @@ A website that allows photos to be uploaded, saved, and retrieved.
 
 Frontend created using ReactJS.
 
-Backend created using ExpressJS. 
+Backend created using NodeJS. 
 
 ToDo list:
 - [ ] Add ability to retrieve photo files from server
