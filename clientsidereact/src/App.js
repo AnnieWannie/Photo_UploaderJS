@@ -11,6 +11,7 @@ function App() {
 
   const multiFileChangeHandler = (e) => {
     setDoggoImage(null)
+    setImageArray(null)
     setFileArray(e.target.files)
     setSubmitText(e.target.files.length + " files preped for upload")
   };
@@ -18,8 +19,9 @@ function App() {
 
 const multiSubmitHandler = (e) =>{
 e.preventDefault();
+
 const data = new FormData()
-data.append("multi_photos", doggoImage)
+data.append("multi_photos", fileArray)
 for (let i = 0; i < fileArray.length; i++){
 data.append("multi_photos", fileArray[i]);
 }
@@ -59,6 +61,7 @@ const getImageArray = (e) => {
 }
 
 
+//Placeholder for testing to get fetching and saving images via API/url's functional
 const getRandomDog = () => {
     setImageArray(null)
     setImageObj(null)
@@ -77,7 +80,7 @@ const getRandomDog = () => {
         .then((blob) => {
           console.log(blob);
           setSubmitText("Doggy blobby obtained")
-          setDoggoImage(blob)
+          setDoggoImage(<img src={URL.createObjectURL(blob)} alt={`Fetched dog blob`} key = {0} width="300" height="300"></img>)
           setFileArray(blob)
         })
         .catch((err) => {
@@ -98,6 +101,7 @@ return (
         <br />
         <br />
         <button type="button" onClick={getImageArray}>Get Images from Backend</button>
+        <br />
         <br />
         <button type="button" onClick={getRandomDog}>Like dogs? Click this.</button>
         <p>{submitText}</p>

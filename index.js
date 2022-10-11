@@ -35,7 +35,7 @@ app.get("/single", (req, res) => {
     res.sendFile(path.join(upload_dir, randomImage))
 })
 
-app.post("/multiple", uploader.array("multi_photos", 5), (req, res) =>{
+app.post("/multiple", uploader.array("multi_photos"), (req, res) =>{
     res.send("Multi upload completed.")
 })
 
