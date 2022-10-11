@@ -16,7 +16,7 @@ const storageConfig = multer.diskStorage({
 
 const uploader = multer({ storage: storageConfig})
 
-app.use(express.static(__dirname + "/images"))
+app.use("/images/", express.static(__dirname + "/images"))
 
 app.post("/single", uploader.single("photo"), (req,res) => {
     console.log(req.url)
@@ -43,6 +43,7 @@ app.get("/multiple", (req, res) => {
     let upload_dir = path.join(__dirname, "/images")
     let uploads = fs.readdirSync(upload_dir)
     res.json(uploads)
+    console.log(uploads)
    
     }
 )
