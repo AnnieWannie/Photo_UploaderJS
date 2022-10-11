@@ -9,7 +9,7 @@ Frontend created using ReactJS.
 Backend created using NodeJS. 
 
 ToDo list:
-- [ ] Add ability to retrieve photo files from server
+- [x] Add ability to retrieve photo files from server
 - [ ] Add photo upload preview
 - [ ] Add styling
 - [ ] Add user registration
