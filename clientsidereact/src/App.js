@@ -14,6 +14,11 @@ function App() {
     setImageArray(null)
     setFileArray(e.target.files)
     setSubmitText(e.target.files.length + " files preped for upload")
+    let tempImageArray = []
+    for(let i = 0; i < e.target.files.length;i++){
+      tempImageArray.push(<img src={URL.createObjectURL(e.target.files[i])} alt={"Target file " + [i+1]} key={i} width="200" height="200"></img>)
+    }
+    setImageObj(tempImageArray)
   };
 
 
@@ -44,6 +49,7 @@ fetch("/multiple", {
 
 const getImageArray = (e) => {
   setDoggoImage(null)
+  setImageObj(null)
   fetch("/multiple")
     .then((result) => {
       return result.json();
@@ -51,7 +57,7 @@ const getImageArray = (e) => {
     .then((response) => {
       console.log(response);
       setSubmitText("Image(s) obtained and displayed")
-      setImageArray(response.map((imageItem, index) => <img src={"/images/"+imageItem} alt={`Array element ${index}`} key = {index} width="300" height="300"></img>))
+      setImageArray(response.map((imageItem, index) => <img src={"/images/"+imageItem} alt={`Array element ${index}`} key = {index} width="200" height="200"></img>))
       console.log("Image collection obtained")
       })
     .catch((err) => {
@@ -61,7 +67,7 @@ const getImageArray = (e) => {
 }
 
 
-//Placeholder for testing to get fetching and saving images via API/url's functional
+//Placeholder for testing feasibility of fetching and saving images via APIs/urls functional
 const getRandomDog = () => {
     setImageArray(null)
     setImageObj(null)
