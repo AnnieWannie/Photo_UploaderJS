@@ -14,6 +14,6 @@ ToDo list:
 - [ ] Add styling
 - [ ] Add user registration
 - [ ] Add video support
-
+- [ ] Add storing images via url
 
 ***Dependencies on Concurrently, Nodemon, Multer, React, and Express***
