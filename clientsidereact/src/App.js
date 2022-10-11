@@ -45,6 +45,7 @@ fetch("/multiple", {
   .then((result) => {
     console.log("File sent");
     setSubmitText("File Sent")
+    console.log(result)
   })
   .catch((err) => {
     console.log(err.message);
