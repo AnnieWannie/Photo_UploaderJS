@@ -9,11 +9,14 @@ Frontend created using ReactJS.
 Backend created using NodeJS. 
 
 ToDo list:
-- [ ] Add ability to retrieve photo files from server
+- [x] Add ability to retrieve photo files from server
 - [ ] Add photo upload preview
 - [ ] Add styling
-- [ ] Add user registration
-- [ ] Add video support
+- [ ] Add storing images via url
 
+Bonus:
+- [ ] Add video support
+- [ ] Add user registration
+- [ ] Add security
 
 ***Dependencies on Concurrently, Nodemon, Multer, React, and Express***
