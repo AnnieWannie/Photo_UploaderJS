@@ -12,7 +12,7 @@ ToDo list:
 - [x] Add ability to retrieve photo files from server
 - [ ] Add photo upload preview
 - [ ] Add styling
-- [ ] Add storing images via url
+- [x] Add storing images via url
 
 Bonus:
 - [ ] Add video support
