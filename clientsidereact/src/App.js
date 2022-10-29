@@ -123,6 +123,10 @@ return (
         <button type="submit">Upload Images</button>
         <br />
         <br />
+      </form>
+      <form onSubmit={userImagesGet}>
+      </form>
+      <form onSubmit={allUserImagesGet}>
         <button type="button" onClick={getImageArray}>Get all user images!</button>
         <br />
         <br />
