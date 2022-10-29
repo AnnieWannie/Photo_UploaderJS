@@ -6,11 +6,14 @@ function App() {
   const [fileArray, setFileArray] = useState();
   const [imageObj, setImageObj] = useState();
   const [imageArray, setImageArray] = useState();
-  const [doggoImage, setDoggoImage] = useState();
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [userName, setUserName] = useState();
   const [submitText, setSubmitText] = useState();
+  // const [doggoImage, setDoggoImage] = useState();
+
 
   const multiFileChangeHandler = (e) => {
-    setDoggoImage(null)
     setImageArray(null)
     setFileArray(e.target.files)
     setSubmitText(e.target.files.length + " files preped for upload")
@@ -26,6 +29,9 @@ const multiSubmitHandler = (e) =>{
 e.preventDefault();
 
 const data = new FormData()
+data.append("fName", firstName)
+data.append("lName", lastName)
+data.append("userName", userName)
 data.append("multi_photos", fileArray)
 for (let i = 0; i < fileArray.length; i++){
 data.append("multi_photos", fileArray[i]);
@@ -48,7 +54,6 @@ fetch("/multiple", {
   
 
 const getImageArray = (e) => {
-  setDoggoImage(null)
   setImageObj(null)
   fetch("/multiple")
     .then((result) => {
@@ -56,6 +61,7 @@ const getImageArray = (e) => {
     })
     .then((response) => {
       console.log(response);
+      console.log(response[0])
       setSubmitText("Image(s) obtained and displayed")
       setImageArray(response.map((imageItem, index) => <img src={"/images/"+imageItem} alt={`Array element ${index}`} key = {index} width="200" height="200"></img>))
       console.log("Image collection obtained")
@@ -68,32 +74,32 @@ const getImageArray = (e) => {
 
 
 //Placeholder for testing feasibility of fetching and saving images via APIs/urls functional
-const getRandomDog = () => {
-    setImageArray(null)
-    setImageObj(null)
-    fetch("https://dog.ceo/api/breeds/image/random")
-      .then((result) => {
-        return result.json();
-      })
-      .then((json) => {
-        console.log(json.status);
-        setSubmitText("Doggy obtained")
-        return fetch(json.message)
-      })
-      .then((result) => {
-          return result.blob();     
-        })
-        .then((blob) => {
-          console.log(blob);
-          setSubmitText("Doggy blobby obtained")
-          setDoggoImage(<img src={URL.createObjectURL(blob)} alt={`Fetched dog blob`} key = {0} width="300" height="300"></img>)
-          setFileArray(blob)
-        })
-        .catch((err) => {
-          console.log(err.message);
-          setSubmitText("Could not get random image")
-        })
-  }
+// const getRandomDog = () => {
+//     setImageArray(null)
+//     setImageObj(null)
+//     fetch("https://dog.ceo/api/breeds/image/random")
+//       .then((result) => {
+//         return result.json();
+//       })
+//       .then((json) => {
+//         console.log(json.status);
+//         setSubmitText("Doggy obtained")
+//         return fetch(json.message)
+//       })
+//       .then((result) => {
+//           return result.blob();     
+//         })
+//         .then((blob) => {
+//           console.log(blob);
+//           setSubmitText("Doggy blobby obtained")
+//           setDoggoImage(<img src={URL.createObjectURL(blob)} alt={`Fetched dog blob`} key = {0} width="300" height="300"></img>)
+//           setFileArray(blob)
+//         })
+//         .catch((err) => {
+//           console.log(err.message);
+//           setSubmitText("Could not get random image")
+//         })
+//   }
 
 return (
   <div className="App">
@@ -103,17 +109,26 @@ return (
         <input type="file" multiple onChange={multiFileChangeHandler} />
         <br />
         <br />
-        <button type="submit">Submit file to the Backend</button>
+        <label>First Name </label>
+        <input type="text" name="fName" onChange={(event) => setFirstName(event.target.value)}/>
+        <br />
+        <label>Last Name </label>
+        <input type="text" name="lName" onChange={(event) => setLastName(event.target.value)}/>
         <br />
         <br />
-        <button type="button" onClick={getImageArray}>Get Images from Backend</button>
+        <label>User Name </label>
+        <input type="text" name="userName" onChange={(event) => setUserName(event.target.value)}/>
         <br />
         <br />
-        <button type="button" onClick={getRandomDog}>Like dogs? Click this.</button>
+        <button type="submit">Upload Images</button>
+        <br />
+        <br />
+        <button type="button" onClick={getImageArray}>Get all user images!</button>
+        <br />
+        <br />
         <p>{submitText}</p>
         {imageObj}
         {imageArray}
-        {doggoImage}
       </form>
     </header>
   </div>
