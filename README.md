@@ -19,4 +19,8 @@ Bonus:
 - [x] Add user registration
 - [ ] Add security
 
+
+#### Currently in the work ToDo 
+Need to add functionality to fetch just the users images if desired **AND** images of **ALL** users if desired from the backend. Being able to fetch every image submitted by users would be fun and interesting along with adding a sense of community. *who am I kidding I'm the only one using this thing lol* 
+
 ***Dependencies on Concurrently, Nodemon, Multer, React, and Express***
