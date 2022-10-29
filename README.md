@@ -16,7 +16,7 @@ ToDo list:
 
 Bonus:
 - [ ] Add video support
-- [ ] Add user registration
+- [x] Add user registration
 - [ ] Add security
 
 ***Dependencies on Concurrently, Nodemon, Multer, React, and Express***
