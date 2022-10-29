@@ -10,7 +10,7 @@ Backend created using NodeJS.
 
 ToDo list:
 - [x] Add ability to retrieve photo files from server
-- [ ] Add photo upload preview
+- [x] Add photo upload preview
 - [ ] Add styling
 - [x] Add storing images via url
 
