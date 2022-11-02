@@ -25,6 +25,9 @@ const uploader = multer({ storage: storageConfig})
 
 app.use("/users/", express.static(__dirname + "/users"))
 
+app.get("/", (req,res) => {
+    res.render('./clientsidereact/src/index.js')
+})
 
 app.post("/multiple", uploader.array("multi_photos"), (req, res) =>{
     console.log(req.body)
