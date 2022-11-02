@@ -26,9 +26,6 @@ const uploader = multer({ storage: storageConfig})
 app.use(express.static(__dirname + "/clientsidereact/public"))
 app.use(express.static(__dirname + "/images"))
 
-app.get("*", (req,res) => {
-    res.sendFile(__dirname + "/clientsidereact/public")
-})
 
 app.post("/submission", uploader.single("user_image_upload"), (req, res) =>{
     console.log(req.body)
@@ -46,4 +43,8 @@ app.get("/submission", (req, res) => {
 
 app.listen(PORT, () => {
 console.log("Server has begun")
+})
+
+app.get("*", (req,res) => {
+    res.sendFile(__dirname + "/clientsidereact/public")
 })
