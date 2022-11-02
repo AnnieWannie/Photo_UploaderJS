@@ -23,7 +23,7 @@ const storageConfig = multer.diskStorage({
 
 const uploader = multer({ storage: storageConfig})
 
-app.use(express.static(__dirname + "/clientsidereact/public"))
+app.use(express.static(__dirname + "/clientsidereact/build"))
 app.use(express.static(__dirname + "/images"))
 
 
@@ -46,5 +46,5 @@ console.log("Server has begun")
 })
 
 app.get("*", (req,res) => {
-    res.sendFile(__dirname + "/clientsidereact/public")
+    res.sendFile(__dirname + "/clientsidereact/build/index.html")
 })
