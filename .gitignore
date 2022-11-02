@@ -1,5 +1,2 @@
 #Ignore dependencies
 /node_modules
-
-#Ignore images in image folder
-/images/*
