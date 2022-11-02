@@ -8,14 +8,14 @@ function App() {
   const [imageArray, setImageArray] = useState();
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
-  const [userName, setUserName] = useState();
+  // const [userName, setUserName] = useState();
   const [submitText, setSubmitText] = useState();
   // const [doggoImage, setDoggoImage] = useState();
 
 
   const multiFileChangeHandler = (e) => {
     setImageArray(null)
-    setFileArray(e.target.files)
+    setFileArray(e.target.files[0])
     setSubmitText(e.target.files.length + " files preped for upload")
     let tempImageArray = []
     for(let i = 0; i < e.target.files.length;i++){
@@ -31,12 +31,12 @@ e.preventDefault();
 const data = new FormData()
 data.append("fName", firstName)
 data.append("lName", lastName)
-data.append("userName", userName)
-data.append("multi_photos", fileArray)
-for (let i = 0; i < fileArray.length; i++){
-data.append("multi_photos", fileArray[i]);
-}
-fetch("/multiple", {
+// data.append("userName", userName)
+data.append("user_image_upload", fileArray)
+// for (let i = 0; i < fileArray.length; i++){
+// data.append("multi_photos", fileArray[i]);
+// }
+fetch("/submission", {
   method: "POST",
   body: data,
 })
@@ -55,15 +55,15 @@ fetch("/multiple", {
 
 const getImageArray = (e) => {
   setImageObj(null)
-  fetch("/multiple")
+  fetch("/submission")
     .then((result) => {
       return result.json();
     })
     .then((response) => {
       console.log(response);
       console.log(response[0])
-      setSubmitText("Image(s) obtained and displayed")
-      setImageArray(response.map((imageItem, index) => <img src={"/images/"+imageItem} alt={`Array element ${index}`} key = {index} width="200" height="200"></img>))
+      setSubmitText("Image obtained and displayed")
+      setImageArray(response.map((imageItem, index) => <img src={'images/' + imageItem} alt={`Array element ${index}`} key = {index} width="200" height="200"></img>))
       console.log("Image collection obtained")
       })
     .catch((err) => {
@@ -104,9 +104,10 @@ const getImageArray = (e) => {
 return (
   <div className="App">
     <header className = "App-header">
-      <h1>AnnieWannie's Photo Uploader</h1>
+      <h1>AnnieWannie's Image Time Capsule</h1>
+      <h4>Upload a single image to add to the collection!</h4>
       <form onSubmit={multiSubmitHandler}>
-        <input type="file" multiple onChange={multiFileChangeHandler} />
+        <input type="file" onChange={multiFileChangeHandler} />
         <br />
         <br />
         <label>First Name </label>
@@ -116,17 +117,13 @@ return (
         <input type="text" name="lName" onChange={(event) => setLastName(event.target.value)}/>
         <br />
         <br />
-        <label>User Name </label>
-        <input type="text" name="userName" onChange={(event) => setUserName(event.target.value)}/>
+        {/* <label>User Name </label> */}
+        {/* <input type="text" name="userName" onChange={(event) => setUserName(event.target.value)}/> */}
+        {/* <br />
+        <br /> */}
+        <button type="submit">Upload Image</button>
         <br />
         <br />
-        <button type="submit">Upload Images</button>
-        <br />
-        <br />
-      </form>
-      <form onSubmit={userImagesGet}>
-      </form>
-      <form onSubmit={allUserImagesGet}>
         <button type="button" onClick={getImageArray}>Get all user images!</button>
         <br />
         <br />
