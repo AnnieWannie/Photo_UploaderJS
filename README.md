@@ -1,6 +1,6 @@
 # Photo_Uploader_JS
 
-## Click [HERE](image-time-capsule.herokuapp.com) to interact with the website and leave your own image :)
+## Click [HERE](https://image-time-capsule.herokuapp.com) to interact with the website and leave your own image :)
 
 **Use 'npm run uploader' in the terminal when working directory is at the root to initialize the website.**
 
