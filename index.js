@@ -23,10 +23,11 @@ const storageConfig = multer.diskStorage({
 
 const uploader = multer({ storage: storageConfig})
 
-app.use("/images/", express.static(__dirname + "/images"))
+app.use(express.static(__dirname + "/clientsidereact/public"))
+app.use(express.static(__dirname + "/images"))
 
-app.get("/", (req,res) => {
-    res.render('./clientsidereact/src/app.js')
+app.get("*", (req,res) => {
+    res.sendFile(__dirname + "/clientsidereact/public")
 })
 
 app.post("/submission", uploader.single("user_image_upload"), (req, res) =>{

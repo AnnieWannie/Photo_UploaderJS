@@ -63,7 +63,7 @@ const getImageArray = (e) => {
       console.log(response);
       console.log(response[0])
       setSubmitText("Image obtained and displayed")
-      setImageArray(response.map((imageItem, index) => <img src={'images/' + imageItem} alt={`Array element ${index}`} key = {index} width="200" height="200"></img>))
+      setImageArray(response.map((imageItem, index) => <img src={imageItem} alt={`Array element ${index}`} key = {index} width="200" height="200"></img>))
       console.log("Image collection obtained")
       })
     .catch((err) => {
