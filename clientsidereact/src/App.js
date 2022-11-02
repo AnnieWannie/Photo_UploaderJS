@@ -8,7 +8,6 @@ function App() {
   const [imageArray, setImageArray] = useState();
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
-  // const [userName, setUserName] = useState();
   const [submitText, setSubmitText] = useState();
   // const [doggoImage, setDoggoImage] = useState();
 
@@ -117,10 +116,6 @@ return (
         <input type="text" name="lName" onChange={(event) => setLastName(event.target.value)}/>
         <br />
         <br />
-        {/* <label>User Name </label> */}
-        {/* <input type="text" name="userName" onChange={(event) => setUserName(event.target.value)}/> */}
-        {/* <br />
-        <br /> */}
         <button type="submit">Upload Image</button>
         <br />
         <br />

@@ -9,12 +9,7 @@ const PORT = process.env.PORT || 8000
 const storageConfig = multer.diskStorage({
     destination: (req, file, cb) => {
         directME = path.join(__dirname, "/images/",)
-            // if (fs.existsSync(directME) == false){
-            //     fs.mkdirSync(directME)
-                cb(null, directME)
-            // } else {
-            //     cb(null, directME)
-            // }
+        cb(null, directME)
     },
     filename: (req,file,cb) =>{
         cb(null, req.body.fName + "-" + req.body.lName + "-" + file.originalname)
