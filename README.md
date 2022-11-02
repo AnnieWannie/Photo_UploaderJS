@@ -1,6 +1,6 @@
 # Photo_Uploader_JS
 
-##Click [HERE](image-time-capsule.herokuapp.com) to interact with the website and leave your own image :)
+## Click [HERE](image-time-capsule.herokuapp.com) to interact with the website and leave your own image :)
 
 **Use 'npm run uploader' in the terminal when working directory is at the root to initialize the website.**
 
@@ -11,14 +11,15 @@ Frontend created using ReactJS.
 Backend created using NodeJS. 
 
 ToDo list:
+- [x] Add storing images
 - [x] Add ability to retrieve photo files from server
 - [x] Add photo upload preview
 - [ ] Add styling
-- [x] Add storing images via url
+
 
 Bonus:
+- [ ] Add recalling user submission details
 - [ ] Add video support
-- [x] Add user registration
 - [ ] Add security
 
 
