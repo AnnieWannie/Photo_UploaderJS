@@ -24,7 +24,8 @@ Bonus:
 
 
 #### Currently in the work ToDo 
-Want to implement displaying First Name, Last Name, and name of submitted image when called from the backend.
+Want to implement displaying attached to the submitted image when called from the backend.
+
 Also need to add style and flavor to the site; for the most part the website has substance now its time for a little style.
 
 ***Dependencies on Concurrently, Nodemon, Multer, React, and Express***

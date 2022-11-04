@@ -6,8 +6,7 @@ function App() {
   const [fileArray, setFileArray] = useState();
   const [imageObj, setImageObj] = useState();
   const [imageArray, setImageArray] = useState();
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
+  const [userTag, setUserTag] = useState();
   const [submitText, setSubmitText] = useState();
   // const [doggoImage, setDoggoImage] = useState();
 
@@ -28,8 +27,7 @@ const multiSubmitHandler = (e) =>{
 e.preventDefault();
 
 const data = new FormData()
-data.append("fName", firstName)
-data.append("lName", lastName)
+data.append("User_Tag", userTag)
 // data.append("userName", userName)
 data.append("user_image_upload", fileArray)
 // for (let i = 0; i < fileArray.length; i++){
@@ -110,10 +108,7 @@ return (
         <br />
         <br />
         <label>First Name </label>
-        <input type="text" name="fName" onChange={(event) => setFirstName(event.target.value)}/>
-        <br />
-        <label>Last Name </label>
-        <input type="text" name="lName" onChange={(event) => setLastName(event.target.value)}/>
+        <input type="text" name="tag" onChange={(event) => setUserTag(event.target.value)}/>
         <br />
         <br />
         <button type="submit">Upload Image</button>

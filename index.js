@@ -12,7 +12,7 @@ const storageConfig = multer.diskStorage({
         cb(null, directME)
     },
     filename: (req,file,cb) =>{
-        cb(null, req.body.fName + "-" + req.body.lName + "-" + file.originalname)
+        cb(null, req.tag + "-" + Date.now() + file.originalname)
     }, 
 })
 
