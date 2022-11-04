@@ -27,7 +27,7 @@ const multiSubmitHandler = (e) =>{
 e.preventDefault();
 
 const data = new FormData()
-data.append("User_Tag", userTag)
+data.append("user_tag", userTag)
 // data.append("userName", userName)
 data.append("user_image_upload", fileArray)
 // for (let i = 0; i < fileArray.length; i++){
@@ -107,7 +107,7 @@ return (
         <input type="file" onChange={multiFileChangeHandler} />
         <br />
         <br />
-        <label>First Name </label>
+        <label>Leave your mark! <br/> Enter a tag for your submission <br/></label>
         <input type="text" name="tag" onChange={(event) => setUserTag(event.target.value)}/>
         <br />
         <br />
