@@ -101,7 +101,8 @@ const getImageArray = (e) => {
 return (
   <div className="App">
     <header className = "App-header">
-      <h1>AnnieWannie's Image Time Capsule</h1>
+      <h1>Image Time Capsule</h1>
+      <h5>By <a href="https://github.com/AnnieWannie">Anthony Elia</a></h5>
       <h4>Upload a single image to add to the collection!</h4>
       <form onSubmit={multiSubmitHandler}>
         <input type="file" onChange={multiFileChangeHandler} />
